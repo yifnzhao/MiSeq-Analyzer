@@ -4,3 +4,9 @@
 * There are 5 mutated mice; from each mice, 5 samples were taken from left and right ovarian tumors and 3 metastasis sites. Each sample underwent amplicon sequencing of the 4 genes of interst. There are 100 reads in total. 
 
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs.docx*** document. 
+
+
+_______________________________
+
+2019-01-14
+* Use PTEN2 data for now
