@@ -11,7 +11,7 @@ _______________________________
 
 ## 2019-01-14
 * Use PTEN2 data for now
-### todo:
+### to-do:
 1. understand what each bio.seq.seq class contains (unlikely to be PTEN2 seq?)
 2. finish compare(myList) function
 ### goal:
