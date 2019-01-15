@@ -1,12 +1,3 @@
-##todo:
-#understand what each bio.seq.seq class contains (unlikely to be PTEN2 seq?)
-#finish compare(myList) function
-##goal:
-#compare the reads
-#categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read
-#visualize the result as smth like pie chart
-
-
 def parse(fileName):
     """
     this function parses the file and obtain the reads as a dictionary of {id:seq}
