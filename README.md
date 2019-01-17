@@ -11,8 +11,36 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 
 ## 2019-01-17
-+ try to use cas-offinder
+#### use cas-offinder
++ This page provides very useful info: https://github.com/snugel/cas-offinder
++ from terminal:
+```
+Yifans-MBP:MiSeq yifan$ ./cas-offinder
+-bash: ./cas-offinder: Permission denied
+Yifans-MBP:MiSeq yifan$ chmod u+x ./cas-offinder
+Yifans-MBP:MiSeq yifan$ ./cas-offinder
+Cas-OFFinder v2.4 (Aug 16 2016)
 
+Copyright (c) 2013 Jeongbin Park and Sangsu Bae
+Website: http://github.com/snugel/cas-offinder
+
+Usage: cas-offinder {input_file} {C|G|A}[device_id(s)] {output_file}
+(C: using CPUs, G: using GPUs, A: using accelerators)
+
+Example input file:
+/var/chromosomes/human_hg19
+NNNNNNNNNNNNNNNNNNNNNRG
+GGCCGACCTGTCGCTGACGCNNN 5
+CGCCAGCGTCAGCGACAGGTNNN 5
+ACGGCGCCAGCGTCAGCGACNNN 5
+GTCGCTGACGCTGGCGCCGTNNN 5
+
+Available device list:
+Type: CPU, ID: 0, <Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz> on <Apple>
+Type: GPU, ID: 0, <Intel(R) HD Graphics 530> on <Apple>
+Type: GPU, ID: 1, <AMD Radeon Pro 455 Compute Engine> on <Apple>
+Yifans-MBP:MiSeq yifan$ 
+```
 _______________________________
 
 ## 2019-01-14
