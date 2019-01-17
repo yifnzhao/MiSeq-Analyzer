@@ -7,6 +7,12 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 
 
+
+
+
+## 2019-01-17
++ try to use cas-offinder
+
 _______________________________
 
 ## 2019-01-14
@@ -18,4 +24,3 @@ _______________________________
 1. compare the reads
 1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read
 1. visualize the result as smth like pie chart
-
