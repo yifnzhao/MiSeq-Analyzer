@@ -50,6 +50,11 @@ The second line indicates the desired pattern including PAM site,
 ...and following lines are the query sequences and maximum mistmatch numbers, seperated by spaces. (The length of the desired pattern and the query sequences should be the same!)" 
 
 Maybe Katie can provide some insight to this.
+
+After this problem is solved:
++ parse the output file (txt)
++ make comparison (look for lowercase letters, symbols etc coded by the cas-offinder authors
++ visualize
 _______________________________
 
 ## 2019-01-14
