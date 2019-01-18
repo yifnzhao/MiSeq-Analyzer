@@ -41,6 +41,15 @@ Type: GPU, ID: 0, <Intel(R) HD Graphics 530> on <Apple>
 Type: GPU, ID: 1, <AMD Radeon Pro 455 Compute Engine> on <Apple>
 Yifans-MBP:MiSeq yifan$ 
 ```
+
+
++ right now I am not sure what each of the lines in input file should correspond.
++ According to the cas-offinder authors, 
+" The first line of the input file gives directory path containing chromosomes FASTA files,
+The second line indicates the desired pattern including PAM site,
+...and following lines are the query sequences and maximum mistmatch numbers, seperated by spaces. (The length of the desired pattern and the query sequences should be the same!)" 
+
+Maybe Katie can provide some insight to this.
 _______________________________
 
 ## 2019-01-14
