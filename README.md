@@ -42,9 +42,10 @@ Type: GPU, ID: 1, <AMD Radeon Pro 455 Compute Engine> on <Apple>
 Yifans-MBP:MiSeq yifan$ 
 ```
 ### my next step
-+ parse the output file (txt)
-+ make comparison (look for lowercase letters, symbols etc coded by the cas-offinder authors
++ parse the output txt file
++ extract info about mismatched bases (look for lowercase letters, symbols etc coded by the cas-offinder authors)
 + visualize
++ note to self: GPU is more robust in performing this task, use G not C
 ### goal:
 1. compare the reads
 1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read
