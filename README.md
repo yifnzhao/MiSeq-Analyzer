@@ -1,14 +1,20 @@
 # MiSeq
 
 * The goal is to identify mutations that occur in ovarian cancer genes in mice treated with CRISPR and to visualize the data in an informative way. The genes of interest are: ***Trp53, PTEN2, PTEN3, BRCA1.***
-* There are 5 mutated mice; from each mice, 5 samples were taken from left and right ovarian tumors and 3 metastasis sites. Each sample underwent amplicon sequencing of the 4 genes of interst. There are 100 reads in total. 
+* There are 5 mutated mice; from each mice, 5 samples were taken from left and right ovarian tumors and 3 metastasis sites (LOT, ROT, Met#1,2,3). Each sample underwent amplicon sequencing of the 4 genes of interst. There are 100 reads in total. 
 
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs.docx*** document. 
 
 
 
-
-
+## 2019-02-04
+#### talked with Katie and Dr. Yamanaka
++ look for mutation directly upstream of PAM sequence (e.g. first query has 2 bp del)
++ now I am thinking that I can run cas-offinder twice per file (first filter out other lab's sequence, second reduce the window size for comparison)
++ categorize mutation types (annotate with mutation as well)
++ how much time does it take to run the whole dataset
++ learned about compound heterozygous, homozygous, heterozygous 
++ Read figure 1 (Katie's email)
 
 ## 2019-01-17
 #### use cas-offinder
