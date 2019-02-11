@@ -5,6 +5,16 @@
 
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs.docx*** document. 
 
+### 2019-02-11
+#### feedback from Katie:
++ PAM off: some of the instances might just be alignment/sequencing error? For now, just mark as "NoMutation"+# and keep the sequence info for further investigation
++ use samples #6-10 (i.e., p53 6-10, BRCA1 6-10, PTEN2 6-10, PTEN3 6-10)
++ for now: use sample from ***PTEN2 6-10, do not merge as they are from different locations, use R1 version (different from R2 in direction of reads) because it's more accurate***
+
+#### a few thoughts:
++ each time we run mutationFinder, we need to:
+1. read (to a dataframe) and write to a ./mutations.csv - this file maps mutation name and site to mutated seq, should contain no repeat. If new mutations are identified, write to this file.
+1. write to a ./output_parsed_<samplename>.csv - this file contains occurrence counts for each mutation present in this sample (for this particular gene and location)
 
 ### 2019-02-10
 #### MutationFinder
