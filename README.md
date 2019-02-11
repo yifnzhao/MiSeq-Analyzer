@@ -16,11 +16,11 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 ### 2019-02-04
 #### talked with Katie and Dr. Yamanaka
 + look for mutation directly upstream of PAM sequence (e.g. first query has 2 bp del)
-+ now I am thinking that I can run cas-offinder twice per file (first filter out other lab's sequence, second reduce the window size for comparison)
++ now I am thinking that I can run cas-offinder twice per file (first filter out other lab's sequence, second reduce the window size for comparison) - no it does not work due to the same-length constraint, this program only helps filtering, have to write my own code to identify the mutations precisely
 + categorize mutation types (annotate with mutation as well)
 + how much time does it take to run the whole dataset
 + learned about compound heterozygous, homozygous, heterozygous 
-+ Read figure 1 (Katie's email)
++ reference: figure 1 (Katie's email)
 
 ### 2019-01-17
 #### cas-offinder
