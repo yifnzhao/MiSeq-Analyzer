@@ -6,6 +6,12 @@
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs.docx*** document. 
 
 
+## 2019-02-10
+#### MutationFinder
++ automatic alignment
++ allows manual curation
++ generates a csv file using pandas dataframe
+
 
 ## 2019-02-04
 #### talked with Katie and Dr. Yamanaka
@@ -48,12 +54,14 @@ Type: GPU, ID: 1, <AMD Radeon Pro 455 Compute Engine> on <Apple>
 Yifans-MBP:MiSeq yifan$ 
 ```
 ### my next step
-+ parse the output txt file
-+ extract info about mismatched bases (look for lowercase letters, symbols etc coded by the cas-offinder authors)
-+ visualize
++ parse the output txt file - done
++ extract info about mismatched bases - done
++ visualize - csv, can do better if necessary
++ streamline for multiple files and for all 4 genes
+
 + note to self: GPU is more robust in performing this task, use G not C
 ### goal:
-1. compare the reads
-1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read
+1. compare the reads - done
+1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read - done
 1. visualize the result as smth like pie chart
-
+1. streamline for the entire dataset
