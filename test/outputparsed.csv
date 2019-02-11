@@ -1,0 +1,13 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurence Count -1
+0,AC in,5,GGGGCTACACGTTATTTATACGTGTTTAGT,8
+1,A in,4,GGGGCTAACGTTATTTATACGTGTTTAGT,35
+2,CG del,4,GGGGCTATTATTTATACGTGTTTAGT,4
+3,A in,4,GGGGCTAACGTTATTTATATGTGTTTAGT,0
+4,T sub,2,GGGGCAACGTTATTTATACGTGTTTAGT,1
+5,C sub,4,GGGGCTATGTTATTTATACGTGTTTAGT,0
+6,unknown1,-3,"ACGGTGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",2
+7,unknown2,-3,"ACGGCGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+8,unknown3,-3,"ACGTGGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+9,unknown4,-3,"CGGGTCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+10,A sub,3,GGGGCTTCGTTATTTATTCGTGTTTAGT,0
+11,unknown5,-3,"ACGGGTCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
