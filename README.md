@@ -22,7 +22,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 + learned about compound heterozygous, homozygous, heterozygous 
 + Read figure 1 (Katie's email)
 
-## 2019-01-17
+### 2019-01-17
 #### cas-offinder
 + This page provides very useful info: https://github.com/snugel/cas-offinder
 + from terminal:
