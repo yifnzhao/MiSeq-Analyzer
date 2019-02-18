@@ -1,0 +1,70 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurence Count(ignore this for now)
+0,6.1,-3,"ATTTTTAAACGGGGCTAATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",15
+1,A in,4,GGGGCTAACGTTATTTATACGTGTTTAGT,56
+2,ACG del,3,GGGGCTTTATTTATACGTGTTTAGT,6
+3,6.2,-3,"CGGGGTTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",1
+4,A in,4,GGGGCTAACGTTATTTATACGTGCTTAGT,1
+5,6.3,-3,"CTGGGCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",4
+6,6.4,-3,"ATGTGGTCAGGCAGGGAAAGGTCGAAATGT  (requires further investigation, PAM sequence is off)",4
+7,T in,4,GGGGCTATCGTTATTTATACGTGTTTAGT,1
+8,6.5,-3,"ACGGTGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",5
+9,6.6,-3,"ACGGCGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",3
+10,A sub,3,GGGGCTGCGTTATTTATACGTGTTTAGT,2
+11,6.7,-3,"ATTTTTAAACGGGGCTAATACGCGTTTAGT  (requires further investigation, PAM sequence is off)",1
+12,6.8,-3,"ATTTTTAAACGTGGCTAATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",1
+13,6.9,-3,"CGGGTCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",3
+14,6.10,-3,"TCGGGGTTAACGTTATTTATACGTGTTAGT  (requires further investigation, PAM sequence is off)",1
+15,A in,4,GGGGCTAACGTTATTTATACGGGTTTAGT,1
+16,6.11,-3,"ATTTTTAAACGGGGGTAATTCGTGTTTAGT  (requires further investigation, PAM sequence is off)",1
+17,6.12,-3,"CGCGGCTAACTTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",1
+18,A sub,14,GGGGCTACGTTATTTATGCGTGTTTAGT,0
+19,7.1,-3,"CGTGGCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",1
+20,7.2,-3,"CGGTGCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",6
+21,A sub,14,GGGGCTACGTTATTTATTCGTGTTTAGT,0
+22,7.3,-3,"ACGGTGCTATGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+23,7.4,-3,"ATGTGGTCTGGCAGGGAAAGGTCGAAATGT  (requires further investigation, PAM sequence is off)",0
+24,C sub by AT,4,GGGGCTAATGTTATTTATACGTGTTTAGT,1
+25,CG in,17,GGGGCTACGTTATTTATACGCGTTTAGT,0
+26,G in,4,GGGGCTAGCGTTATTTATACGTGTTTAGT,1
+27,T sub,13,GGGGCTACGTTATTTAGACGTGTTTAGT,0
+28,7.5,-3,"ACGGGGTTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+29,7.6,-3,"ACGTGGCTATGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+30,7.7,-3,"ACGTGGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",5
+31,7.8,-3,"CGGTGGTAACGTTATTTATACGGGTTTAGT  (requires further investigation, PAM sequence is off)",0
+32,AT in,16,GGGGCTACGTTATTTATACATGTTTAGT,0
+33,G sub,5,GGGGCTACATTATTTATACGTGTTTAGT,0
+34,A sub,3,GGGGCTTCGTTATTTATACGTGTTTAGT,0
+35,A inn,4,GGGGCTAACGTTATTTTTACGTGTTTAGT,0
+36,G in,3,GGGGCTGACGTTATTTATACGTGTTTAGT,0
+37,8.1,-3,"ACTGGGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",1
+38,A in,4,GGGGCTAACGCTATTTATACGTGTTTAGT,1
+39,8.2,-3,"ACTTACAGTAGAAGTGAATCGGTAATTAGT  (requires further investigation, PAM sequence is off)",0
+40,8.3,-3,"TTAAACGGGGCTAATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",2
+41,A in,4,GGGGCTAACGTTATTTATACTTGTTTAGT,0
+42,T sub,2,GGGGCCACGTTATTTATACGTGTTTAGT,0
+43,C sub,4,GGGGCTAAGTTATTTATACGTGTTTAGT,1
+44,8.4,-3,"CGTGTCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+45,8.5,-3,"ACGGTGCTACGTTATCTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+46,C sub by AT,4,GGGGCTAATGTTATTTGTACGTGTTTAGT,0
+47,GG in,17,GGGGCTACGTTATTTATACGGGTTTAGT,0
+48,C sub,4,GGGGCTATGTTATTTATACGTGTTTAGT,0
+49,A in,19,GGGGCTACGTTATTTATACGTGATTAGT,0
+50,T sub by CA,2,GGGGCCAACGTTATTTATACGTGTTTAGT,0
+51,T del,10,GGGGCTACGTTATATATACGTGTTTAGT,0
+52,T sub,9,GGGGCTACGTTACTTATACGTGTTTAGT,0
+53,9.1,-3,"AGTATAACTGACGAATAGATTTTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+54,9.2,-3,"AGTATAACCGACGAATAGATTTTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+55,9.3,-3,"TTAAACGGTGCTAATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+56,T in,3,GGGGCTTACGTTATTTATACGTGTTTAGT,0
+57,A sub,12,GGGGCTACGTTATTTTTACGTGTTTAGT,0
+58,9.4,-3,"TTAATCGTGGCTAATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+59,C in,5,GGGGCTACCGTTATTTATACGTGTTTAGT,0
+60,AG in,17,GGGGCTACGTTATTTATACGAGTTTAGT,0
+61,9.5,-3,"TTAGATCCCGGAGAACACGGCGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+62,10.1,-3,"CTGTGCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+63,10.2,-3,"CGAGGCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+64,10.3,-3,"CGGGGTTAACGTTATTTTTCGTGTTTTAGT  (requires further investigation, PAM sequence is off)",0
+65,T sub,6,GGGGCTACGCTATTTATACGTGTTTAGT,0
+66,10.4,-3,"ATGTGGTCAGGCAGGGAACGGTCGAAATGT  (requires further investigation, PAM sequence is off)",0
+67,10.5,-3,"ACGGGACTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+68,10.6,-3,"CGTGGCTAATGTTATTTATATGTGTTTAGT  (requires further investigation, PAM sequence is off)",0

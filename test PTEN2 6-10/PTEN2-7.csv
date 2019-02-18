@@ -1,0 +1,20 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurence Count -1
+0,A in,4,GGGGCTAACGTTATTTATACGTGTTTAGT,139
+1,A sub,14,GGGGCTACGTTATTTATGCGTGTTTAGT,0
+2,7.1,-3,"CGTGGCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+3,7.2,-3,"CGGTGCTAACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",3
+4,6.5,-3,"ACGGTGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",2
+5,A sub,14,GGGGCTACGTTATTTATTCGTGTTTAGT,0
+6,6.6,-3,"ACGGCGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+7,A sub,3,GGGGCTGCGTTATTTATACGTGTTTAGT,0
+8,7.3,-3,"ACGGTGCTATGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+9,7.4,-3,"ATGTGGTCTGGCAGGGAAAGGTCGAAATGT  (requires further investigation, PAM sequence is off)",0
+10,C sub by AT,4,GGGGCTAATGTTATTTATACGTGTTTAGT,0
+11,CG in,17,GGGGCTACGTTATTTATACGCGTTTAGT,0
+12,G in,4,GGGGCTAGCGTTATTTATACGTGTTTAGT,0
+13,T sub,13,GGGGCTACGTTATTTAGACGTGTTTAGT,0
+14,7.5,-3,"ACGGGGTTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+15,7.6,-3,"ACGTGGCTATGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",0
+16,7.7,-3,"ACGTGGCTACGTTATTTATACGTGTTTAGT  (requires further investigation, PAM sequence is off)",2
+17,7.8,-3,"CGGTGGTAACGTTATTTATACGGGTTTAGT  (requires further investigation, PAM sequence is off)",0
+18,AT in,16,GGGGCTACGTTATTTATACATGTTTAGT,0
