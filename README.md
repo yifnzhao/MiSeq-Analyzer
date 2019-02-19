@@ -7,7 +7,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 ### 2019-02-11
 #### feedback from Katie:
-+ PAM off: some of the instances might just be alignment/sequencing error? For now, just mark as "NoMutation"+# and keep the sequence info for further investigation
++ PAM off: some of the instances might just be alignment/sequencing error? For now, just mark and keep the sequence info for further investigation
 + use samples #6-10 (i.e., p53 6-10, BRCA1 6-10, PTEN2 6-10, PTEN3 6-10)
 + for now: use sample from ***PTEN2 6-10, do not merge as they are from different locations, use R1 version (different from R2 in direction of reads) because it's more accurate***
 
