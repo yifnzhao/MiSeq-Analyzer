@@ -66,10 +66,14 @@ Yifans-MBP:MiSeq yifan$
 ## Next Steps:
 + parse the output txt file - done
 + extract info about mismatched bases - done
-+ visualize - csv, can do better if necessary
++ visualize - csv, can do better if necessary - done
 + streamline for multiple files and for all 4 genes
 + note to self: GPU is more robust in performing this task, use G not C
-
++ to organize the data files: use regular expression
+```
+$ mkdir ./R1fastq
+$ mv *R1.fastq ./R1fastq/
+```
 ## Goals:
 1. compare the reads - done
 1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read - done
