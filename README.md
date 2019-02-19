@@ -7,6 +7,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 ### 2019-02-19
 + processed PTEN2 samples 6-10
++ forgot to include wt in pie chart
 
 ### 2019-02-11
 #### feedback from Katie:
