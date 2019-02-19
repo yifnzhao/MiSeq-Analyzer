@@ -27,7 +27,7 @@ def dict2list(myDict):
 
 
 def writeInput(filename):
-    inputfilename='input_'+str(filename)+'.txt'
+    inputfilename=str(filename)+'_input.txt'
     with open(inputfilename,'w') as f:
         f.write('/Users/yifan/MiSeq/myreference/\n')
         f.write('NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\n')
@@ -37,5 +37,5 @@ def writeInput(filename):
             f.write("%s 100\n" % item)
 
 if __name__=="__main__":
-    writeInput("MI.M03555_0362.001.FLD0004.PTEN2-12_R1.fastq")
+    writeInput("/Users/yifan/MiSeq/test/MI.M03555_0362.001.FLD0083.PTEN2-10_R1.fastq")
     print('The input file has been created.')
