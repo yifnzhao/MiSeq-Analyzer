@@ -5,6 +5,9 @@
 
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs.docx*** document. 
 
+### 2019-02-19
++ processed PTEN2 samples 6-10
+
 ### 2019-02-11
 #### feedback from Katie:
 + PAM off: some of the instances might just be alignment/sequencing error? For now, just mark and keep the sequence info for further investigation
@@ -77,5 +80,5 @@ $ mv *R1.fastq ./R1fastq/
 ## Goals:
 1. compare the reads - done
 1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read - done
-1. visualize the result as smth like pie chart
-1. streamline for the entire dataset
+1. visualize the result as smth like pie chart - done
+1. streamline for the entire dataset - now I think some manual curation is needed for easier downsteam analysis
