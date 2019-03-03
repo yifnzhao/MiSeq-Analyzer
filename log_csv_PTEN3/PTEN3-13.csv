@@ -1,0 +1,5 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurrence Count -1,First identified in:
+0,2.0,-3.0,"AAAGGTGAAGATATATTCCTCCAATTCAGG  (requires further investigation, PAM sequence is off)",96,PTEN3-1_R1.fastq_input.txt
+1,31,-3.0,"AAAGGTAAAGATATATTCCTCCAATTCAGG  (requires further investigation, PAM sequence is off)",0,PTEN3-13_R1.fastq_input.txt
+2,32,-3.0,"TGAAGAGTTATCATTTTGTGTATTTCTGTG  (requires further investigation, PAM sequence is off)",0,PTEN3-13_R1.fastq_input.txt
+3,33,-3.0,"AAAGGTGCAGATATATTCCTCCAATTCAGG  (requires further investigation, PAM sequence is off)",0,PTEN3-13_R1.fastq_input.txt
