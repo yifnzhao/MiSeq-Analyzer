@@ -3,7 +3,23 @@
 * The goal is to identify mutations that occur in ovarian cancer genes in mice treated with CRISPR and to visualize the data in an informative way. The genes of interest are: ***Trp53, PTEN2, PTEN3, BRCA1.***
 * There are 5 mutated mice; from each mice, 5 samples were taken from left and right ovarian tumors and 3 metastasis sites (LOT, ROT, Met#1,2,3). Each sample underwent amplicon sequencing of the 4 genes of interst. There are 100 reads in total. 
 
-Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs.docx*** document. 
+Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs (new).docx*** document. (Note the changes in primer sequences for p53) 
+
+
+
+
+### 2019-03-03
+
++ v4: PTEN3, p53 (no reverse operation)
++ v3: PTEN2, BRCA1 (need reverse)
+
++ not sure about BRCA1 though (it has two PAM sequences and I only used the first one (AGG, first PAM after seq reversion) because it's more convenient
+
++ no longer using cas-offinder for reads validation (for many reasons)
++ use v2_inputValidator instead (validates reads by matching them with right primer sequence, order shuffled, first 100 reads taken)
++ see the logs for backing-tracking mutation types, number of reads (validated / full 100?), etc
++ also notes that in local folder named '<mygenename>/fastq', there are original raw fastq files as well as validated reads (all)
+
 
 ### 2019-02-19
 + processed PTEN2 samples 6-10
@@ -82,4 +98,4 @@ $ mv *R1.fastq ./R1fastq/
 1. compare the reads - done
 1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read - done
 1. visualize the result as smth like pie chart - done
-1. streamline for the entire dataset - now I think some manual curation is needed for easier downsteam analysis
+1. streamline for the entire dataset - done
