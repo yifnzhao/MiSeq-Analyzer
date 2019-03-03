@@ -1,0 +1,14 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurrence Count -1,First identified in:
+0,150,-3.0,"TCGGACGACTGTGCCAAGGCCATCGGGCGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-15_R1.fastq_input.txt
+1,132.0,-3.0,"CCTTCGGAAGCTGTGCCAAGGCCATCGGGTGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",2,BRCA1-12_R1.fastq_input.txt
+2,115.0,-3.0,"CAAGCTGGACCCCTTCGGAAGAATCGGGTTGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",2,BRCA1-11_R1.fastq_input.txt
+3,151,-3.0,"TCGGAAGACTGTGCCAAGGCCATCGCGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-15_R1.fastq_input.txt
+4,2.0,-3.0,"CTTCGGAAGACTGTGCCAAGGCCATCGGGTGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-1_R1.fastq_input.txt
+5,3.0,-3.0,"TTCGGAAGACTGTGCCAAGGCCATCGGGTGGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",1,BRCA1-1_R1.fastq_input.txt
+6,152,-3.0,"TCGGAAGACTGTGCCAAGGCCATAGGGGGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-15_R1.fastq_input.txt
+7,29.0,-3.0,"TCGGACGACTGTGCCAAGGCCATCGGGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-3_R1.fastq_input.txt
+8,128.0,-3.0,"AGTCGAGAGTAAAAATGTTTTCGGTTTAGAGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",5,BRCA1-12_R1.fastq_input.txt
+9,153,-3.0,"TCGGAAGACTGTGCCAAGGCCATCGGGTGCGAGACCTACTATCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-15_R1.fastq_input.txt
+10,154,-3.0,"TCGGCAGACTGTGCCAGGGCCATCGGGTGCGAGACCTACTAGCCGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-15_R1.fastq_input.txt
+11,155,-3.0,"AGACTGTGCCAAGGCCATCGGGTGCGATACCTACTAGCTGCGGCGGAGTAAG  (requires further investigation, PAM sequence is off)",0,BRCA1-15_R1.fastq_input.txt
+12,156,-3.0,"AGTCGAGAGTAAAAATGTTTTCGGTTTAGAGAGACCTACTCGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-15_R1.fastq_input.txt

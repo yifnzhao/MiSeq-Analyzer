@@ -1,0 +1,14 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurrence Count -1,First identified in:
+0,77.0,-3.0,"CCCCTTCGGATGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",44,BRCA1-7_R1.fastq_input.txt
+1,84,-3.0,"TTCGGAAGACTGTGCCAAGGCCATCGGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+2,85,-3.0,"ACCCTTCGGATGTGCCAAGGCCATCGGGTGCCGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+3,86,-3.0,"TCGGAAGACTGTGCCAAGGCCATCGTGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+4,63.0,-3.0,"TTCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",1,BRCA1-6_R1.fastq_input.txt
+5,87,-3.0,"CCCCTTCGGATGTGCCAAGGCCATCGGGTGCAGACCTATTAGATGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+6,88,-3.0,"TCGGAAGACTGTGCCAAGGCGATCGGGTGCGAGACCTAATAGGTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+7,89,-3.0,"TCGGAAGACTGTGCCAAGGCCATCAGGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+8,90,-3.0,"TCGTAAGACTGTGCCAAGGCCCTCGGGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+9,5.0,-3.0,"TCGGCAGACTGTGCCAAGGCCATCGGGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",1,BRCA1-1_R1.fastq_input.txt
+10,91,-3.0,"TCGGATGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGGGGAGTAAG  (requires further investigation, PAM sequence is off)",0,BRCA1-8_R1.fastq_input.txt
+11,29.0,-3.0,"TCGGACGACTGTGCCAAGGCCATCGGGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-3_R1.fastq_input.txt
+12,92,-3.0,"CCCCTTCGGATGTGCCACGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",1,BRCA1-8_R1.fastq_input.txt

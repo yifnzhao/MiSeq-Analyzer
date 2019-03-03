@@ -1,0 +1,12 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurrence Count -1,First identified in:
+0,76,-3.0,"CCCCTTCGGATGTGCCCCGGCCATCGGGTGCAGACCTCCTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-7_R1.fastq_input.txt
+1,77,-3.0,"CCCCTTCGGATGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",47,BRCA1-7_R1.fastq_input.txt
+2,63.0,-3.0,"TTCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-6_R1.fastq_input.txt
+3,78,-3.0,"CGCCTTCGGATGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-7_R1.fastq_input.txt
+4,38.0,-3.0,"TCGGAAGACTGTGCCAAGGCCATCGGGTGCGAGACCTACTAGCTGCTGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-3_R1.fastq_input.txt
+5,79,-3.0,"CCCCTTCGGATGTGCCAAGGCCATCGGGTGCAGACCTACTTGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",1,BRCA1-7_R1.fastq_input.txt
+6,80,-3.0,"CCCCTTCGGATGTGCCAAGGCCGTCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-7_R1.fastq_input.txt
+7,29.0,-3.0,"TCGGACGACTGTGCCAAGGCCATCGGGTGCGAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-3_R1.fastq_input.txt
+8,81,-3.0,"TCGGATGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGCGGAGTAAG  (requires further investigation, PAM sequence is off)",1,BRCA1-7_R1.fastq_input.txt
+9,82,-3.0,"CCCCTTCGGATGTGCCAAGGCCATCGGGTGCAAACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-7_R1.fastq_input.txt
+10,83,-3.0,"CCCCTTCGGATGTGCCCAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-7_R1.fastq_input.txt

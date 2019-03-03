@@ -1,0 +1,17 @@
+,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurrence Count -1,First identified in:
+0,63.0,-3.0,"TTCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",82,BRCA1-6_R1.fastq_input.txt
+1,201,-3.0,"TTCGGACGACTGTGCCCAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+2,202,-3.0,"CTCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+3,113.0,-3.0,"TTCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTCGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-10_R1.fastq_input.txt
+4,203,-3.0,"TTCGGAAGAATGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",1,BRCA1-23_R1.fastq_input.txt
+5,204,-2.0,"GTCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+6,72.0,-3.0,"TTCGGCAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",1,BRCA1-6_R1.fastq_input.txt
+7,205,-3.0,"TTCGGAAGACTGTACCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+8,206,-3.0,"AAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGGGGAGTAAG  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+9,207,-3.0,"TTCGGAAGACTGTGCCAAGGCCACCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+10,208,-3.0,"TTCGGCAGACCGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+11,209,-3.0,"TTCGGAAGACTGTGTCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+12,210,-3.0,"TTCGGAAGACCGTGCCAAGGCCATCGTGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+13,211,-3.0,"ATCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+14,212,-3.0,"TTCGGAAGACTGTGCCAAGGCCATCGGGTGCAGACATACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
+15,213,-3.0,"TTCGGAAGGCTGTGCCAAGGCCATCGGGTGCAGACCTACTAGCTGCGGAGGA  (requires further investigation, PAM sequence is off)",0,BRCA1-23_R1.fastq_input.txt
