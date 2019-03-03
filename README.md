@@ -11,14 +11,14 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 ### 2019-03-03
 
 + v4: PTEN3, p53 (no reverse operation)
-+ v3: PTEN2, BRCA1 (need reverse)
++ v3: PTEN2, BRCA1 (need reversion)
 
 + not sure about BRCA1 though (it has two PAM sequences and I only used the first one (AGG, first PAM after seq reversion) because it's more convenient
 
 + no longer using cas-offinder for reads validation (for many reasons)
 + use v2_inputValidator instead (validates reads by matching them with right primer sequence, order shuffled, first 100 reads taken)
 + see the logs for backing-tracking mutation types, number of reads (validated / full 100?), etc
-+ also notes that in local folder named '<mygenename>/fastq', there are original raw fastq files as well as validated reads (all)
++ also note that in local folder named '<mygenename>/fastq', there are original raw fastq files as well as validated reads (all)
 
 
 ### 2019-02-19
