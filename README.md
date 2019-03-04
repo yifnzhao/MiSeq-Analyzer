@@ -7,7 +7,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 
 ### 2019-03-04
-#### ***lab meeting notes:
+#### ***lab meeting notes:***
 
 ##### next steps:
 + increase query window (20 bp upstream AND downstream of PAM)
