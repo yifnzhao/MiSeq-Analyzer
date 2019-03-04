@@ -17,7 +17,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 
 ##### other notes:
-+ notion of "reverse" in comp sci vs "reverse complementary" in biology (5'-------NGG 3')
++ notion of "reverse" in comp sci vs "reverse complementary" in biology (5'-------NGG 3') 
 + frameshift vs in-frame mutation
 + proper ways to present a mutation around PAM site
 + Katie noticed  some discrepancy in the analysis result of p53 sample # 10 (T sub only detected 5 times in the software she used). We thought my result is still valid after checking with the original unvalidated reads...Dr. Yamanaka suggested it might be due to inclusion criteria...I think the software might be running some algorithm similar to cas-offinder and excluded the reads early on at the validation step. 
