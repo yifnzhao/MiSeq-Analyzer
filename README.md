@@ -7,6 +7,28 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 
 ### 2019-03-04
+#### ***lab meeting notes:
+
+##### next steps:
++ increase query window (20 bp upstream AND downstream of PAM)
++ clean up and define mutations (pay attention to + and -: upstream of PAM marked as neg) (frameshift vs in-frame mutation) (missense mutation)
++ fix BRCA1 PAM site misalignment problem
++ filter mutations that only occurred once, or not? Is this manipulation proper statistically?
+
+
+##### other notes:
++ notion of "reverse" in comp sci vs "reverse complementary" in biology (5'-------NGG 3')
++ frameshift vs in-frame mutation
++ proper ways to present a mutation around PAM site
++ Katie noticed  some discrepancy in the analysis result of p53 sample # 10 (T sub only detected 5 times in the software she used). We thought my result is still valid after checking with the original unvalidated reads...Dr. Yamanaka suggested it might be due to inclusion criteria...I think the software might be running some algorithm similar to cas-offinder and excluded the reads early on at the validation step. 
+
+
+##### related ideas:
++ random selection of 100 reads : is it redundant to generate more than 1 set of 100 reads per sample?
++ right now we have 100 piecharts... We probably will need to look for patterns and extract features in some way
++ could be interesting to employ machine learning approaches / principal component analysis / independent component analysis
+
+#### (done before lab meeting today)
 + fixed some bugs in v4 (some problems with shortening query and reversion check point)
 + p53-8: there is one sequence that cannot be aligned - (search for keyword "Error" in the log)
 
