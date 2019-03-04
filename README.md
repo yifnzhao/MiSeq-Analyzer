@@ -78,7 +78,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 + reference: figure 1 (Katie's email)
 
 ### 2019-01-17
-#### cas-offinder
+##### cas-offinder
 + This page provides very useful info: https://github.com/snugel/cas-offinder
 + from terminal:
 ```
@@ -108,7 +108,7 @@ Type: GPU, ID: 0, <Intel(R) HD Graphics 530> on <Apple>
 Type: GPU, ID: 1, <AMD Radeon Pro 455 Compute Engine> on <Apple>
 Yifans-MBP:MiSeq yifan$ 
 ```
-## Next Steps:
+#### Next Steps:
 + parse the output txt file - done
 + extract info about mismatched bases - done
 + visualize - csv, can do better if necessary - done
@@ -119,7 +119,7 @@ Yifans-MBP:MiSeq yifan$
 $ mkdir ./R1fastq
 $ mv *R1.fastq ./R1fastq/
 ```
-## Goals:
+#### Goals:
 1. compare the reads - done
 1. categorize the type of mutation (insertion, deletion, substitution; also, # of bp changed) for each read - done
 1. visualize the result as smth like pie chart - done
