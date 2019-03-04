@@ -14,6 +14,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 1.  clean up and define mutations (pay attention to + and -: upstream of PAM marked as neg) (frameshift vs in-frame mutation) (missense mutation)
 1.  fix BRCA1 PAM site misalignment problem
 1.  filter mutations that only occurred once, or not? Is this manipulation proper statistically?
+1. piechart - meaningful color codes and labels
 
 
 #### other notes:
