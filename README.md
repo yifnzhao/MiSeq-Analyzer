@@ -10,10 +10,10 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 ### ***lab meeting notes:***
 
 #### next steps:
-+ increase query window (20 bp upstream AND downstream of PAM)
-+ clean up and define mutations (pay attention to + and -: upstream of PAM marked as neg) (frameshift vs in-frame mutation) (missense mutation)
-+ fix BRCA1 PAM site misalignment problem
-+ filter mutations that only occurred once, or not? Is this manipulation proper statistically?
+1. increase query window (20 bp upstream AND downstream of PAM)
+1.  clean up and define mutations (pay attention to + and -: upstream of PAM marked as neg) (frameshift vs in-frame mutation) (missense mutation)
+1.  fix BRCA1 PAM site misalignment problem
+1.  filter mutations that only occurred once, or not? Is this manipulation proper statistically?
 
 
 #### other notes:
