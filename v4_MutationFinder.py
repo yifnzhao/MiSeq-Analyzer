@@ -20,45 +20,40 @@ import matplotlib.pyplot as plt
 import sys
 import os
 
-def smaller_query(up5bp, length_ref, querySeq,moreup):
-    ''' returns a shorter query sequence ending at PAM site and is 7 bp longer than reference sequence'''
-    myregex=up5bp+"\w+"
-    if re.search(myregex, querySeq) == None:
-        myregex=moreup+"\w+"
-    if re.search(myregex, querySeq) == None:
-        print("unable to identify the target region for:")
-        print(querySeq) 
-        return querySeq
-    up2end_index = re.search(myregex, querySeq).span()    
-    up_index=up2end_index[0]
-    end_index= up2end_index[1]
-    small=querySeq[up_index:end_index]
-    smaller=small[:length_ref+7]
-    return smaller
-
-#def reverse(seq):
-#    return seq[::-1]
-
-def get_query_from_PAM(up5bp,reversed_refseq,queryseq,PAM,moreup):
-    length_ref=len(reversed_refseq)
+def query_from_PAM(PAM, length_ref, querySeq):
+    ''' returns a shorter query sequence starting at PAM site and is 7 bp longer than reference sequence'''
     
-    smallseq=smaller_query(up5bp,length_ref,queryseq,moreup)
-#    reversed_smallseq=reverse(smallseq)
-    whereisPAM=smallseq.find(PAM+"CC") #change GC for different genes
-    if whereisPAM in [0,1,2,3,4,5]:
-        seq_from_PAM=smallseq[whereisPAM:]
+    PAM_pos = querySeq.find(PAM+"CA") # change this for diff genes
+#p53
+#    if PAM_pos == -1:
+#        PAM_pos_13up = querySeq.find("TCGTG")
+#        small_seq=querySeq[PAM_pos_13up + 13:]
+#    else:
+#        small_seq=querySeq[PAM_pos:]
+    
+ #PTEN3
+    if PAM_pos == -1:
+        PAM_pos_22up = querySeq.find("ATATGTATTT")
+        small_seq=querySeq[PAM_pos_22up + 22:]
     else:
-        seq_from_PAM=smallseq + "  (requires further investigation, PAM sequence is off)"
-    return seq_from_PAM
+        small_seq=querySeq[PAM_pos:]   
+    
 
-def find_mismatch_position(reversed_refseq,seq_from_PAM):
-    if seq_from_PAM.find(reversed_refseq)!=-1:
+    smaller_seq=small_seq[:length_ref+7]
+    return smaller_seq
+
+
+
+
+def find_mismatch_position(refseq,seq_from_PAM):
+    if seq_from_PAM.find(refseq)!=-1:
         return -1 # no mutation found
-    for index in range(len(reversed_refseq)):
-            if reversed_refseq[index]== seq_from_PAM[index]:
+    for index in range(len(refseq)):
+            if refseq[index]== seq_from_PAM[index]:
+              
                 continue
             else:
-                mismatch_site=index-3
+                mismatch_site=index #starting from PAM
                 return mismatch_site 
 
 def already_in_mutations_list(mutations_list, mutation_site,seq_from_PAM):
@@ -101,20 +96,20 @@ def firsttime_all_mutations(mutation_n, my_txt_dir):
 #    refseq="TGTGCATATTTATTGCATCGGGG"
 #    
     
-#     # PTEN3:
-#    PAM="CCT"
-#    up5bp="AAAGG"
-#    moreup="TGAAG"
-#    refseq="CCTCAGTTTGTGGTCTGCCAGCT"
-#    
-#    
-     # p53:
-    PAM="CCCCCA"
-    up5bp="GTGAT"
-    moreup="GGTAA"
-    refseq="CCCCCACCATGAGCGCTGCTCCGATG"
+     # PTEN3:
+    PAM="CAGATCCT"
     
-
+    refseq="CCTCAGTTTGTGGTCTGCCAGCT"
+    
+#    
+#     # p53:
+#    PAM="CCCCCA"
+#    refseq="CCCCCACCATGAGCGCTGCTCCGATG"
+    len_ref=len(refseq)
+    
+    
+    
+    
     
     f=open(my_txt_dir,"r") #directory of txt containing my validated reads    
 #    reversed_refseq=reverse(refseq)
@@ -123,9 +118,9 @@ def firsttime_all_mutations(mutation_n, my_txt_dir):
     for str_line in all_lines:
         line=str_line.split() 
         queryseq=line[0]
-        seq_from_PAM=get_query_from_PAM(up5bp,refseq,queryseq,PAM, moreup) #this shorter sequence is reversed
+        seq_from_PAM=query_from_PAM(PAM,len_ref, queryseq) #this shorter sequence is  NOT reversed
         alignments = pairwise2.align.globalxx(refseq,seq_from_PAM)
-        print("---01234567890123456789")
+       # print("---01234567890123456789")
         print(format_alignment(*alignments[0]))
         mutation_site=find_mismatch_position(refseq,seq_from_PAM)
         if mutation_site==-1:        
@@ -147,7 +142,7 @@ def firsttime_all_mutations(mutation_n, my_txt_dir):
         #writing to CSV file
         mutations=[[None, None,None,None,None]]
         df =pandas.DataFrame(mutations, columns=['Mutation Name', 'Mutation Site','Reversed Shortened Mutated Seq', 'Occurrence Count -1','First identified in:'])
-        df.to_csv('p53_all_mutations.csv', sep=',')
+        df.to_csv('PTEN3_all_mutations.csv', sep=',')
     return mutation_n        
 
 def mutations_in_a_sample(mutation_n, inputtxt_dir, all_mutations_csv_dir,output_csv_dir):
@@ -164,13 +159,15 @@ def mutations_in_a_sample(mutation_n, inputtxt_dir, all_mutations_csv_dir,output
 #    moreup="TGTAA"
 #    refseq="TGTGCATATTTATTGCATCGGGG"
     
+      # PTEN3:
+    PAM="CAGATCCT"
     
-     # p53:
-    PAM="CCCCCA"
-    up5bp="GTGAT"
-    moreup="GGTAA"
-    refseq="CCCCCACCATGAGCGCTGCTCCGATG"
-    
+    refseq="CCTCAGTTTGTGGTCTGCCAGCT"
+#     # p53:
+#    PAM="CCCCCA"
+#    
+#    refseq="CCCCCACCATGAGCGCTGCTCCGATG"
+    len_ref=len(refseq)
 
     
     f=open(inputtxt_dir,"r") #output file that needs to be parsed (i.e. find the mutations) 
@@ -180,9 +177,14 @@ def mutations_in_a_sample(mutation_n, inputtxt_dir, all_mutations_csv_dir,output
     for str_line in all_lines:
         line=str_line.split() 
         queryseq=line[0]
-        seq_from_PAM=get_query_from_PAM(up5bp,refseq,queryseq,PAM, moreup) #this shorter sequence is reversed
+        seq_from_PAM=query_from_PAM(PAM,len_ref, queryseq) #this shorter sequence is  NOT reversed
         alignments = pairwise2.align.globalxx(refseq,seq_from_PAM)
-        print("---01234567890123456789")
+        #print("---01234567890123456789")
+        #print(alignments)
+        if alignments == []:
+            print("Unable to align the query with reference sequence: "+line[0])
+            print("Error...")
+            continue
         print(format_alignment(*alignments[0]))
         mutation_site=find_mismatch_position(refseq,seq_from_PAM)
         if mutation_site==-1:        
@@ -275,136 +277,136 @@ def piechart(csv_dir, piechart_dir):
         
 if __name__=="__main__":
     mutation_n = 0  
-    os.chdir('/Users/yifan/MiSeq/data/MiSeq20190218/R1/p53/my_txt')
+    os.chdir('/Users/yifan/MiSeq/data/MiSeq20190218/R1/PTEN3/my_txt')
    
    
     stdoutOrigin=sys.stdout 
-    sys.stdout = open("p53_log20190303.txt", "w")
+    sys.stdout = open("PTEN3_log20190304.txt", "w")
    
+    firsttime_all_mutations(mutation_n,'PTEN3-1_R1.fastq_input.txt')
+   
+    
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-1_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-1.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-2_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-2.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-3_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-3.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-4_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-4.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-5_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-5.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-6_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-6.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-7_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-7.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-8_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-8.csv')        
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-9_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-9.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-10_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-10.csv')  
+    
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-11_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-11.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-12_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-12.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-13_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-13.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-14_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-14.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-15_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-15.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-16_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-16.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-17_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-17.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-18_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-18.csv')        
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-19_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-19.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-20_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-20.csv')  
+    
+    
+    
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-21_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-21.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-22_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-22.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-23_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-23.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-24_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-24.csv')  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-25_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-25.csv')  
+  
+    
+    piechart('PTEN3-1.csv','PTEN3-1.png');
+    piechart('PTEN3-2.csv','PTEN3-2.png');
+    piechart('PTEN3-3.csv','PTEN3-3.png');
+    piechart('PTEN3-4.csv','PTEN3-4.png');
+    piechart('PTEN3-5.csv','PTEN3-5.png');
+    piechart('PTEN3-6.csv','PTEN3-6.png');
+    piechart('PTEN3-7.csv','PTEN3-7.png');
+    piechart('PTEN3-8.csv','PTEN3-8.png');
+    piechart('PTEN3-9.csv','PTEN3-9.png');
+    piechart('PTEN3-10.csv','PTEN3-10.png');
+    piechart('PTEN3-11.csv','PTEN3-11.png');
+    piechart('PTEN3-12.csv','PTEN3-12.png');
+    piechart('PTEN3-13.csv','PTEN3-13.png');
+    piechart('PTEN3-14.csv','PTEN3-14.png');
+    piechart('PTEN3-15.csv','PTEN3-15.png');
+    piechart('PTEN3-16.csv','PTEN3-16.png');
+    piechart('PTEN3-17.csv','PTEN3-17.png');
+    piechart('PTEN3-18.csv','PTEN3-18.png');
+    piechart('PTEN3-19.csv','PTEN3-19.png');
+    piechart('PTEN3-20.csv','PTEN3-20.png');
+    piechart('PTEN3-21.csv','PTEN3-21.png');
+    piechart('PTEN3-22.csv','PTEN3-22.png');
+    piechart('PTEN3-23.csv','PTEN3-23.png');
+    piechart('PTEN3-24.csv','PTEN3-24.png');
+    piechart('PTEN3-25.csv','PTEN3-25.png');
+
+
+# 
 #    firsttime_all_mutations(mutation_n,'p53-1_R1.fastq_input.txt')
 #   
 #    
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-1_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-1.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-2_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-2.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-3_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-3.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-4_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-4.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-5_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-5.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-6_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-6.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-7_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-7.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-8_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-8.csv')        
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-9_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-9.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-10_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-10.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-1_R1.fastq_input.txt','p53_all_mutations.csv','p53-1.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-2_R1.fastq_input.txt','p53_all_mutations.csv','p53-2.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-3_R1.fastq_input.txt','p53_all_mutations.csv','p53-3.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-4_R1.fastq_input.txt','p53_all_mutations.csv','p53-4.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-5_R1.fastq_input.txt','p53_all_mutations.csv','p53-5.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-6_R1.fastq_input.txt','p53_all_mutations.csv','p53-6.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-7_R1.fastq_input.txt','p53_all_mutations.csv','p53-7.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-8_R1.fastq_input.txt','p53_all_mutations.csv','p53-8.csv')        
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-9_R1.fastq_input.txt','p53_all_mutations.csv','p53-9.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-10_R1.fastq_input.txt','p53_all_mutations.csv','p53-10.csv')  
 #    
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-11_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-11.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-12_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-12.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-13_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-13.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-14_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-14.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-15_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-15.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-16_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-16.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-17_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-17.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-18_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-18.csv')        
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-19_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-19.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-20_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-20.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-11_R1.fastq_input.txt','p53_all_mutations.csv','p53-11.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-12_R1.fastq_input.txt','p53_all_mutations.csv','p53-12.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-13_R1.fastq_input.txt','p53_all_mutations.csv','p53-13.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-14_R1.fastq_input.txt','p53_all_mutations.csv','p53-14.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-15_R1.fastq_input.txt','p53_all_mutations.csv','p53-15.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-16_R1.fastq_input.txt','p53_all_mutations.csv','p53-16.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-17_R1.fastq_input.txt','p53_all_mutations.csv','p53-17.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-18_R1.fastq_input.txt','p53_all_mutations.csv','p53-18.csv')        
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-19_R1.fastq_input.txt','p53_all_mutations.csv','p53-19.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-20_R1.fastq_input.txt','p53_all_mutations.csv','p53-20.csv')  
 #    
 #    
 #    
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-21_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-21.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-22_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-22.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-23_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-23.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-24_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-24.csv')  
-#    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-25_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-25.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-21_R1.fastq_input.txt','p53_all_mutations.csv','p53-21.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-22_R1.fastq_input.txt','p53_all_mutations.csv','p53-22.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-23_R1.fastq_input.txt','p53_all_mutations.csv','p53-23.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-24_R1.fastq_input.txt','p53_all_mutations.csv','p53-24.csv')  
+#    mutation_n=mutations_in_a_sample(mutation_n, 'p53-25_R1.fastq_input.txt','p53_all_mutations.csv','p53-25.csv')  
 #  
 #    
-#    piechart('PTEN3-1.csv','PTEN3-1.png');
-#    piechart('PTEN3-2.csv','PTEN3-2.png');
-#    piechart('PTEN3-3.csv','PTEN3-3.png');
-#    piechart('PTEN3-4.csv','PTEN3-4.png');
-#    piechart('PTEN3-5.csv','PTEN3-5.png');
-#    piechart('PTEN3-6.csv','PTEN3-6.png');
-#    piechart('PTEN3-7.csv','PTEN3-7.png');
-#    piechart('PTEN3-8.csv','PTEN3-8.png');
-#    piechart('PTEN3-9.csv','PTEN3-9.png');
-#    piechart('PTEN3-10.csv','PTEN3.png');
-#    piechart('PTEN3-11.csv','PTEN3-11.png');
-#    piechart('PTEN3-12.csv','PTEN3-12.png');
-#    piechart('PTEN3-13.csv','PTEN3-13.png');
-#    piechart('PTEN3-14.csv','PTEN3-14.png');
-#    piechart('PTEN3-15.csv','PTEN3-15.png');
-#    piechart('PTEN3-16.csv','PTEN3-16.png');
-#    piechart('PTEN3-17.csv','PTEN3-17.png');
-#    piechart('PTEN3-18.csv','PTEN3-18.png');
-#    piechart('PTEN3-19.csv','PTEN3-19.png');
-#    piechart('PTEN3-20.csv','PTEN3-20.png');
-#    piechart('PTEN3-21.csv','PTEN3-21.png');
-#    piechart('PTEN3-22.csv','PTEN3-22.png');
-#    piechart('PTEN3-23.csv','PTEN3-23.png');
-#    piechart('PTEN3-24.csv','PTEN3-24.png');
-#    piechart('PTEN3-25.csv','PTEN3-25.png');
+#    piechart('p53-1.csv','p53-1.png');
+#    piechart('p53-2.csv','p53-2.png');
+#    piechart('p53-3.csv','p53-3.png');
+#    piechart('p53-4.csv','p53-4.png');
+#    piechart('p53-5.csv','p53-5.png');
+#    piechart('p53-6.csv','p53-6.png');
+#    piechart('p53-7.csv','p53-7.png');
+#    piechart('p53-8.csv','p53-8.png');
+#    piechart('p53-9.csv','p53-9.png');
+#    piechart('p53-10.csv','p53-10.png');
+#    piechart('p53-11.csv','p53-11.png');
+#    piechart('p53-12.csv','p53-12.png');
+#    piechart('p53-13.csv','p53-13.png');
+#    piechart('p53-14.csv','p53-14.png');
+#    piechart('p53-15.csv','p53-15.png');
+#    piechart('p53-16.csv','p53-16.png');
+#    piechart('p53-17.csv','p53-17.png');
+#    piechart('p53-18.csv','p53-18.png');
+#    piechart('p53-19.csv','p53-19.png');
+#    piechart('p53-20.csv','p53-20.png');
+#    piechart('p53-21.csv','p53-21.png');
+#    piechart('p53-22.csv','p53-22.png');
+#    piechart('p53-23.csv','p53-23.png');
+#    piechart('p53-24.csv','p53-24.png');
+#    piechart('p53-25.csv','p53-25.png');
 #
-
- 
-    firsttime_all_mutations(mutation_n,'p53-1_R1.fastq_input.txt')
-   
-    
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-1_R1.fastq_input.txt','p53_all_mutations.csv','p53-1.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-2_R1.fastq_input.txt','p53_all_mutations.csv','p53-2.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-3_R1.fastq_input.txt','p53_all_mutations.csv','p53-3.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-4_R1.fastq_input.txt','p53_all_mutations.csv','p53-4.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-5_R1.fastq_input.txt','p53_all_mutations.csv','p53-5.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-6_R1.fastq_input.txt','p53_all_mutations.csv','p53-6.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-7_R1.fastq_input.txt','p53_all_mutations.csv','p53-7.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-8_R1.fastq_input.txt','p53_all_mutations.csv','p53-8.csv')        
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-9_R1.fastq_input.txt','p53_all_mutations.csv','p53-9.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-10_R1.fastq_input.txt','p53_all_mutations.csv','p53-10.csv')  
-    
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-11_R1.fastq_input.txt','p53_all_mutations.csv','p53-11.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-12_R1.fastq_input.txt','p53_all_mutations.csv','p53-12.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-13_R1.fastq_input.txt','p53_all_mutations.csv','p53-13.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-14_R1.fastq_input.txt','p53_all_mutations.csv','p53-14.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-15_R1.fastq_input.txt','p53_all_mutations.csv','p53-15.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-16_R1.fastq_input.txt','p53_all_mutations.csv','p53-16.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-17_R1.fastq_input.txt','p53_all_mutations.csv','p53-17.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-18_R1.fastq_input.txt','p53_all_mutations.csv','p53-18.csv')        
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-19_R1.fastq_input.txt','p53_all_mutations.csv','p53-19.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-20_R1.fastq_input.txt','p53_all_mutations.csv','p53-20.csv')  
-    
-    
-    
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-21_R1.fastq_input.txt','p53_all_mutations.csv','p53-21.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-22_R1.fastq_input.txt','p53_all_mutations.csv','p53-22.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-23_R1.fastq_input.txt','p53_all_mutations.csv','p53-23.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-24_R1.fastq_input.txt','p53_all_mutations.csv','p53-24.csv')  
-    mutation_n=mutations_in_a_sample(mutation_n, 'p53-25_R1.fastq_input.txt','p53_all_mutations.csv','p53-25.csv')  
-  
-    
-    piechart('p53-1.csv','p53-1.png');
-    piechart('p53-2.csv','p53-2.png');
-    piechart('p53-3.csv','p53-3.png');
-    piechart('p53-4.csv','p53-4.png');
-    piechart('p53-5.csv','p53-5.png');
-    piechart('p53-6.csv','p53-6.png');
-    piechart('p53-7.csv','p53-7.png');
-    piechart('p53-8.csv','p53-8.png');
-    piechart('p53-9.csv','p53-9.png');
-    piechart('p53-10.csv','p53.png');
-    piechart('p53-11.csv','p53-11.png');
-    piechart('p53-12.csv','p53-12.png');
-    piechart('p53-13.csv','p53-13.png');
-    piechart('p53-14.csv','p53-14.png');
-    piechart('p53-15.csv','p53-15.png');
-    piechart('p53-16.csv','p53-16.png');
-    piechart('p53-17.csv','p53-17.png');
-    piechart('p53-18.csv','p53-18.png');
-    piechart('p53-19.csv','p53-19.png');
-    piechart('p53-20.csv','p53-20.png');
-    piechart('p53-21.csv','p53-21.png');
-    piechart('p53-22.csv','p53-22.png');
-    piechart('p53-23.csv','p53-23.png');
-    piechart('p53-24.csv','p53-24.png');
-    piechart('p53-25.csv','p53-25.png');
-
-
-    
+#
+#    
     
      
     sys.stdout.close()
