@@ -1,7 +1,8 @@
 ,Mutation Name,Mutation Site,Reversed Shortened Mutated Seq,Occurrence Count -1,First identified in:
-0,2.0,-3.0,"GTGATGGTAAGCCCTCAACACCGCCTGTGGGGT  (requires further investigation, PAM sequence is off)",71,p53-1_R1.fastq_input.txt
-1,64,-3.0,"GTGATGGTAAGCCTCCACCACCCCCTGGGGGGT  (requires further investigation, PAM sequence is off)",0,p53-13_R1.fastq_input.txt
-2,3.0,-3.0,"GTGATGGCCTGGCTCCTCCCCAGCATCTTATCA  (requires further investigation, PAM sequence is off)",16,p53-1_R1.fastq_input.txt
-3,65,-3.0,"GTGATGGTAAGCCCTCAACACCGCCTGTGGGGA  (requires further investigation, PAM sequence is off)",0,p53-13_R1.fastq_input.txt
-4,5.0,-3.0,"GTGATGGCCTGGCTCCTCCCCAGCATCTTATCC  (requires further investigation, PAM sequence is off)",7,p53-1_R1.fastq_input.txt
-5,9.0,-3.0,"GGTAAGCCCTCAACACCGCCTGTGGGGTTAGGA  (requires further investigation, PAM sequence is off)",0,p53-2_R1.fastq_input.txt
+0,2.0,10.0,CCCCCACCATTGAGCGCTGCTCCGATGGTGATG,12,p53-1_R1.fastq_input.txt
+1,4.0,13.0,CCCCCACCATGAGTGCTGCTCCGATGGTGATGG,22,p53-1_R1.fastq_input.txt
+2,65,5.0,CCCCCTCCATTGAGCGCTGCTCCGACGGTGATG,0,p53-13_R1.fastq_input.txt
+3,59.0,7.0,CCCCCACGAGCGCTGCTCCGATGGTGATGGTAA,10,p53-12_R1.fastq_input.txt
+4,66,10.0,CCCCCACCATTTGAGCGCTGCTCCGATGGTGAT,2,p53-13_R1.fastq_input.txt
+5,55.0,10.0,CCCCCACCATTGAGTGCTGCTCCGATGGTGATG,0,p53-11_R1.fastq_input.txt
+6,62.0,8.0,CCCCCACCTGAGCGCTGCTCCGATGGTGATGGT,0,p53-12_R1.fastq_input.txt
