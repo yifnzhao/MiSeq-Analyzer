@@ -7,16 +7,16 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 
 ### 2019-03-04
-#### ***lab meeting notes:***
+### ***lab meeting notes:***
 
-##### next steps:
+#### next steps:
 + increase query window (20 bp upstream AND downstream of PAM)
 + clean up and define mutations (pay attention to + and -: upstream of PAM marked as neg) (frameshift vs in-frame mutation) (missense mutation)
 + fix BRCA1 PAM site misalignment problem
 + filter mutations that only occurred once, or not? Is this manipulation proper statistically?
 
 
-##### other notes:
+#### other notes:
 + notion of "reverse" in comp sci vs "reverse complementary" in biology (5'-------NGG 3') 
 + frameshift vs in-frame mutation
 + proper ways to present a mutation around PAM site
@@ -24,7 +24,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 + p53 insufficient reads - due to massive deletion (Katie)
 
 
-##### related ideas:
+#### related ideas:
 + random selection of 100 reads : is it redundant to generate more than 1 set of 100 reads per sample?
 + right now we have 100 piecharts... We probably will need to look for patterns and extract features in some way
 + could be interesting to employ machine learning approaches / principal component analysis / independent component analysis
