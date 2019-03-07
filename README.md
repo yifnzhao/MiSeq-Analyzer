@@ -6,6 +6,18 @@
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs (new).docx*** document. (Note the changes in primer sequences for p53) 
 
 
+Some notes about MiSeq:
+(reference : https://web.uri.edu/gsc/illumina-miseq-next-generation-sequencer/ )
+
+- performs clonal amplification, genomic DNA sequencing, and data analysis with base calling, alignment, variant calling, and reporting
+- utilises a double-sided, single-lane flow cell and reagent cartridge supplied in kit form
+- sequencing is performed by recordinf the synthesis of DNA strands in clusters of sample templates attached to the flow cell.
+- each newly attached base liberates a fluorescent dye that is excited by diode lasers and imaged using two digita camera
+- up to 96 sampoels may be sequenced in a single run with DNA libraries prepared with indexed or bar-coded adpatoers
+
+- fastq onlyL generates intermediate analysis files in FASTQ format enabling the use of third-parth tools to analyze sequencing data
+
+
 ### 2019-03-04
 ### ***lab meeting notes:***
 
