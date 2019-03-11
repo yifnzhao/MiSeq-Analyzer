@@ -13,7 +13,6 @@ Created on Sun Mar 10 18:19:06 2019
 
 from Bio import pairwise2
 from Bio.pairwise2 import format_alignment
-import re
 import pandas
 import matplotlib
 import matplotlib.pyplot as plt
@@ -21,7 +20,7 @@ import sys
 import os
 
     
-def window(seq, left, right)
+def window(seq, left, right):
     ''' 
     query window (20 bp upstream of PAM AND downstream of the reference sequence)
     seq: query sequence
@@ -48,21 +47,21 @@ def matchPAM(query,PAM, up5, moreup5):
     elif five_left != -1:
         myquery = query[five_left:] + " 5"
     elif ten_left != -1:
-        myquery = query[tenleft:] + " 10"
+        myquery = query[ten_left:] + " 10"
     else: myquery = query + " unable to match with PAM sequence: " + PAM
     return myquery
 
 def compare(ref, query):   
     # to be used in find_mismatch_position function below
-    for index in range(len(refseq)):
-            if refseq[index]== seq_from_PAM[index]:
+    for index in range(len(ref)):
+            if ref[index]== query[index]:
                 continue
             else:
                 mismatch_site=index #starting from PAM
                 return mismatch_site 
             
 def find_mismatch_position(ref,query,up5,moreup5):
-    if query.find(refseq)!=-1:
+    if query.find(ref)!=-1:
         return None # no mutation found
     if query[-1]=="5": #starts at up5
         myref = up5+ref
@@ -73,6 +72,8 @@ def find_mismatch_position(ref,query,up5,moreup5):
     elif query[-1]=="P":
         myref=ref
         pos = -(compare(myref, query))+1 #neg indicates upstream of PAM
+    else: 
+        pos = 9999999999999999999 #for error position
     return pos
 
 def already_in_mutations_list(mutations_list, mutation_site,seq_from_PAM):
@@ -102,7 +103,7 @@ def already_in_all_mutations_list(sample_mutations_list, all_mut_list, mutation_
                 return sample_mutation
     return exist
 
-def firsttime_all_mutations(mutation_n, my_txt_dir, PAM, up5, moreup5, ref, left, right):
+def firsttime_all_mutations(mutation_n, my_txt_dir, PAM, up5, moreup5, ref, left, right,all_mutations_csv_name):
     ''' generates a file with all mutations, more mutations can be added later on upon discovery'''
     print("Start analyzing (first time): "+ my_txt_dir)
     print("We have so far identified "+str(mutation_n)+ " mutations")
@@ -110,7 +111,6 @@ def firsttime_all_mutations(mutation_n, my_txt_dir, PAM, up5, moreup5, ref, left
 
     
 
-    len_ref=len(refseq)
     
     
     f=open(my_txt_dir,"r") #directory of txt containing my validated reads
@@ -122,12 +122,12 @@ def firsttime_all_mutations(mutation_n, my_txt_dir, PAM, up5, moreup5, ref, left
         small_query=window(queryseq,left, right)
         
         #for PTEN2 and BRCA1 only: flip!!!
-        if (PAM == "GGG") or (PAM == "GGA") # this holds because the PAM seq for the 4 genes are different
+        if (PAM == "GGG") or (PAM == "GGA"): # this holds because the PAM seq for the 4 genes are different
             ref = flip(ref)
             small_query = flip(small_query)
 
         smaller_query=matchPAM(small_query, PAM, up5, moreup5)
-        alignments = pairwise2.align.globalxx(refseq,smaller_query)
+        alignments = pairwise2.align.globalxx(ref,smaller_query)
         print("12345678901234567890")
         if alignments == []:
             print("Unable to align the query with reference sequence: "+line[0])
@@ -141,20 +141,21 @@ def firsttime_all_mutations(mutation_n, my_txt_dir, PAM, up5, moreup5, ref, left
             print("Next query:\n")
             continue
         else:
-            exist=already_in_mutations_list(mutations, mutation_site,seq_from_PAM)
+            exist=already_in_mutations_list(mutations, mutation_site,smaller_query)
             if exist==True:
                 continue
             else:
                 print("The first mismatch occurs at position " + str(mutation_site))
                 mutation_n+=1
                 mutation_name = str(mutation_n)                
-                mutations.append([mutation_name,mutation_site,seq_from_PAM, 0, my_txt_dir]) # note that seq_from_PAM is a reversed seq
+                mutations.append([mutation_name,mutation_site,smaller_query, 0, my_txt_dir]) # note that seq_from_PAM is a reversed seq
                 print(mutations)
                 print("We found a new mutation! Next Query:")
         #writing to CSV file
         mutations=[[None, None,None,None,None]]
         df =pandas.DataFrame(mutations, columns=['Mutation Name', 'Mutation Site','Reversed Shortened Mutated Seq', 'Occurrence Count -1','First identified in:'])
-        df.to_csv('PTEN3_all_mutations.csv', sep=',')
+        #df.to_csv('PTEN3_all_mutations.csv', sep=',')
+        df.to_csv(all_mutations_csv_name, sep=',')
     return mutation_n        
 
 def mutations_in_a_sample(mutation_n, inputtxt_dir, all_mutations_csv_dir,output_csv_dir, PAM, up5, moreup5, ref, left, right):
@@ -165,11 +166,6 @@ def mutations_in_a_sample(mutation_n, inputtxt_dir, all_mutations_csv_dir,output
     all_mut_df= pandas.read_csv(all_mutations_csv_dir)
     all_mut=all_mut_df.values.tolist()
     
-
-    
-    
-    len_ref=len(refseq)
-
     
     f=open(inputtxt_dir,"r") #output file that needs to be parsed (i.e. find the mutations) 
     
@@ -188,7 +184,7 @@ def mutations_in_a_sample(mutation_n, inputtxt_dir, all_mutations_csv_dir,output
         
         
         samller_query=matchPAM(small_query, PAM, up5, moreup5)
-        alignments = pairwise2.align.globalxx(refseq,seq_from_PAM)
+        alignments = pairwise2.align.globalxx(ref,samller_query)
         
         print("12345678901234567890")
         #print(alignments)
@@ -198,25 +194,25 @@ def mutations_in_a_sample(mutation_n, inputtxt_dir, all_mutations_csv_dir,output
             print("Error...")
             continue
         print(format_alignment(*alignments[0]))
-        mutation_site=find_mismatch_position(red,samller_query, up5, moreup5)
+        mutation_site=find_mismatch_position(ref,samller_query, up5, moreup5)
         if mutation_site==None:        
            print("No mutation found :)")
            print("\n\n")
            print("Next query:\n")
         else:
-            exist_in_sample_mutations_list=already_in_mutations_list(mutations, mutation_site,seq_from_PAM)
+            exist_in_sample_mutations_list=already_in_mutations_list(mutations, mutation_site,samller_query)
             
             if exist_in_sample_mutations_list==True:
                 continue
             else:
-                exist_in_all_mutations_list=already_in_all_mutations_list(mutations, all_mut, mutation_site, seq_from_PAM)
+                exist_in_all_mutations_list=already_in_all_mutations_list(mutations, all_mut, mutation_site, samller_query)
                 if  exist_in_all_mutations_list != False:
                     mutations.append(exist_in_all_mutations_list)
                 else:
                     print("The first mismatch occurs at position " + str(mutation_site))
                     mutation_n+=1
                     mutation_name = str(mutation_n)
-                    mutations.append([mutation_name,mutation_site,seq_from_PAM, 0, inputtxt_dir])
+                    mutations.append([mutation_name,mutation_site,samller_query, 0, inputtxt_dir])
                     # note that seq_from_PAM is a reversed seq
                     print("We found a new mutation!")
                     print("\n\n")
@@ -303,7 +299,7 @@ def BRCA1():
     stdoutOrigin=sys.stdout 
     sys.stdout = open("BRCA1_log20190311.txt", "w")
    
-    firsttime_all_mutations(mutation_n,'BRCA1-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right)
+    firsttime_all_mutations(mutation_n,'BRCA1-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'BRCA1_all_mutations.csv')
    
     mutation_n=mutations_in_a_sample(mutation_n, 'BRCA1-1_R1.fastq_input.txt','BRCA1_all_mutations.csv','BRCA1-1.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'BRCA1-2_R1.fastq_input.txt','BRCA1_all_mutations.csv','BRCA1-2.csv',PAM, up5, moreup5, ref, left, right)  
@@ -379,7 +375,7 @@ def PTEN3():
     stdoutOrigin=sys.stdout 
     sys.stdout = open("PTEN3_log20190311.txt", "w")
    
-    firsttime_all_mutations(mutation_n,'PTEN3-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right)
+    firsttime_all_mutations(mutation_n,'PTEN3-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'PTEN3_all_mutations.csv')
    
     mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-1_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-1.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-2_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-2.csv',PAM, up5, moreup5, ref, left, right)  
@@ -456,7 +452,7 @@ def p53():
    
     stdoutOrigin=sys.stdout 
     sys.stdout = open("p53_log20190311.txt", "w")
-    firsttime_all_mutations(mutation_n,'p53-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right)
+    firsttime_all_mutations(mutation_n,'p53-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'p53_all_mutations.csv')
    
     
     mutation_n=mutations_in_a_sample(mutation_n, 'p53-1_R1.fastq_input.txt','p53_all_mutations.csv','p53-1.csv',PAM, up5, moreup5, ref, left, right)  
@@ -533,7 +529,7 @@ def PTEN2():
     sys.stdout = open("PTEN2_log2019011.txt", "w")
     
     
-    firsttime_all_mutations(mutation_n,'MI.M03992_0353.001.FLD0011.PTEN2-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right)
+    firsttime_all_mutations(mutation_n,'MI.M03992_0353.001.FLD0011.PTEN2-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'PTEN2_all_mutations.csv')
    
     #1-5
     mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0011.PTEN2-1_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-1.csv',PAM, up5, moreup5, ref, left, right)  
@@ -605,7 +601,7 @@ def PTEN2():
     
     print("PTEN2 finished")
 
-if name=="__main__":
+if __name__=="__main__":
     BRCA1()
     p53()
     PTEN3()
