@@ -6,6 +6,10 @@
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs (new).docx*** document. (Note the changes in primer sequences for p53) 
 
 
+### 2019-03-25
+- (note to self) remember to add sample # 26 (omitted previously)
+
+
 ### 2019-03-11
 - uploaded v5_MutationFinder:
 A self-contained version of MutationFinder that first generates a ±20 bp window around reference sequence (including PAM). This version is supposed to also have (almost?) correct number for the site of mutation.
