@@ -7,6 +7,8 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 
 ### 2019-03-29
 - updated MutationFinder (v5) and inputValidator (v2): added sample #26
+- please download 03292019_data_summary_update.zip
+- PTEN2 #26 : empty input txt file...need to investigate more about this
 
 ### 2019-03-25
 - (note to self) remember to add sample # 26 (omitted previously)
