@@ -1,7 +1,7 @@
 # MiSeq-Analyzer
 
 * The goal is to identify mutations that occur in ovarian cancer genes in mice treated with CRISPR and to visualize the data in an informative way. The genes of interest are: ***Trp53, PTEN2, PTEN3, BRCA1.***
-* There are 5 mutated mice; from each mice, 5 samples were taken from left and right ovarian tumors and 3 metastasis sites (LOT, ROT, Met#1,2,3). Each sample underwent amplicon sequencing of the 4 genes of interst. There are 100 fastq files in total. 
+* There are 5 mutated mice; from each mice, 5 samples were taken from left and right ovarian tumors and 3 metastasis sites (LOT, ROT, Met#1,2,3). Each sample underwent amplicon sequencing of the 4 genes of interst. There are 100 fastq files in total. (2019-03-25 update: 26 instead of 25)
 
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs (new).docx*** document. (Note the changes in primer sequences for p53) 
 
