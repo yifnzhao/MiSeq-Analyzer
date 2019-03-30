@@ -1,0 +1,5 @@
+
+
+----------------------------------------------------------------------
+The total number of reads in the input txt file below is: 716
+This input file has been created: mMI.M03992_0353.001.FLD0336.PTEN2-26_FACs_R1.fastq_input.txt
