@@ -293,11 +293,11 @@ def BRCA1():
     left=83
     right=128
     mutation_n = 0  
-    os.chdir('/Users/yifan/MiSeq/data/MiSeq20190218/R1/BRCA1/my_txt')
+    os.chdir('/Users/yifan/MiSeq/data/03292019_data_summary_update/validated_input_BRCA1')
    
    
     stdoutOrigin=sys.stdout 
-    sys.stdout = open("BRCA1_log20190311.txt", "w")
+    sys.stdout = open("BRCA1_log20190329.txt", "w")
    
     firsttime_all_mutations(mutation_n,'BRCA1-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'BRCA1_all_mutations.csv')
    
@@ -328,6 +328,7 @@ def BRCA1():
     mutation_n=mutations_in_a_sample(mutation_n, 'BRCA1-23_R1.fastq_input.txt','BRCA1_all_mutations.csv','BRCA1-23.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'BRCA1-24_R1.fastq_input.txt','BRCA1_all_mutations.csv','BRCA1-24.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'BRCA1-25_R1.fastq_input.txt','BRCA1_all_mutations.csv','BRCA1-25.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'BRCA1-26_FACs_R1.fastq_input.txt','BRCA1_all_mutations.csv','BRCA1-26.csv',PAM, up5, moreup5, ref, left, right)  
     
     piechart('BRCA1-1.csv','BRCA1-1.png');
     piechart('BRCA1-2.csv','BRCA1-2.png');
@@ -354,6 +355,7 @@ def BRCA1():
     piechart('BRCA1-23.csv','BRCA1-23.png');
     piechart('BRCA1-24.csv','BRCA1-24.png');
     piechart('BRCA1-25.csv','BRCA1-25.png');
+    piechart('BRCA1-26.csv','BRCA1-26.png');
 
     sys.stdout.close()
     sys.stdout=stdoutOrigin
@@ -369,11 +371,11 @@ def PTEN3():
     right=212
        
     mutation_n = 0  
-    os.chdir('/Users/yifan/MiSeq/data/MiSeq20190218/R1/PTEN3/my_txt')
+    os.chdir('/Users/yifan/MiSeq/data/03292019_data_summary_update/validated_input_PTEN3')
    
    
     stdoutOrigin=sys.stdout 
-    sys.stdout = open("PTEN3_log20190311.txt", "w")
+    sys.stdout = open("PTEN3_log20190329.txt", "w")
    
     firsttime_all_mutations(mutation_n,'PTEN3-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'PTEN3_all_mutations.csv')
    
@@ -404,6 +406,7 @@ def PTEN3():
     mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-23_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-23.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-24_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-24.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-25_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-25.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN3-26_FACs_R1.fastq_input.txt','PTEN3_all_mutations.csv','PTEN3-26.csv',PAM, up5, moreup5, ref, left, right)  
     
     piechart('PTEN3-1.csv','PTEN3-1.png');
     piechart('PTEN3-2.csv','PTEN3-2.png');
@@ -430,7 +433,7 @@ def PTEN3():
     piechart('PTEN3-23.csv','PTEN3-23.png');
     piechart('PTEN3-24.csv','PTEN3-24.png');
     piechart('PTEN3-25.csv','PTEN3-25.png');
-
+    piechart('PTEN3-26.csv','PTEN3-26.png');
     sys.stdout.close()
     sys.stdout=stdoutOrigin
     print("PTEN3 finished")
@@ -447,11 +450,11 @@ def p53():
        
     
     mutation_n = 0  
-    os.chdir('/Users/yifan/MiSeq/data/MiSeq20190218/R1/p53/my_txt')
+    os.chdir('/Users/yifan/MiSeq/data/03292019_data_summary_update/validated_input_p53')
    
    
     stdoutOrigin=sys.stdout 
-    sys.stdout = open("p53_log20190311.txt", "w")
+    sys.stdout = open("p53_log20190329.txt", "w")
     firsttime_all_mutations(mutation_n,'p53-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'p53_all_mutations.csv')
    
     
@@ -482,6 +485,8 @@ def p53():
     mutation_n=mutations_in_a_sample(mutation_n, 'p53-23_R1.fastq_input.txt','p53_all_mutations.csv','p53-23.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'p53-24_R1.fastq_input.txt','p53_all_mutations.csv','p53-24.csv',PAM, up5, moreup5, ref, left, right)  
     mutation_n=mutations_in_a_sample(mutation_n, 'p53-25_R1.fastq_input.txt','p53_all_mutations.csv','p53-25.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'p53-26_FACs_R1.fastq_input.txt','p53_all_mutations.csv','p53-26.csv',PAM, up5, moreup5, ref, left, right)  
+
 
     piechart('p53-1.csv','p53-1.png');
     piechart('p53-2.csv','p53-2.png');
@@ -508,7 +513,7 @@ def p53():
     piechart('p53-23.csv','p53-23.png');
     piechart('p53-24.csv','p53-24.png');
     piechart('p53-25.csv','p53-25.png');
-
+    piechart('p53-26.csv','p53-26.png');
     sys.stdout.close()
     sys.stdout=stdoutOrigin
     print("p53 finished")
@@ -524,50 +529,51 @@ def PTEN2():
     right=177
     
     mutation_n = 0  
-    os.chdir('/Users/yifan/MiSeq/data/MiSeq20190218/R1/PTEN2/my_txt')
+    os.chdir('/Users/yifan/MiSeq/data/03292019_data_summary_update/validated_input_PTEN2')
     stdoutOrigin=sys.stdout 
-    sys.stdout = open("PTEN2_log2019011.txt", "w")
+    sys.stdout = open("PTEN2_log20190329.txt", "w")
     
     
-    firsttime_all_mutations(mutation_n,'MI.M03992_0353.001.FLD0011.PTEN2-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'PTEN2_all_mutations.csv')
+    firsttime_all_mutations(mutation_n,'PTEN2-1_R1.fastq_input.txt',PAM, up5, moreup5, ref, left, right,'PTEN2_all_mutations.csv')
    
     #1-5
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0011.PTEN2-1_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-1.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0019.PTEN2-2_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-2.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0027.PTEN2-3_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-3.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0035.PTEN2-4_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-4.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0043.PTEN2-5_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-5.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-1_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-1.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-2_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-2.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-3_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-3.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-4_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-4.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-5_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-5.csv',PAM, up5, moreup5, ref, left, right)  
 
     
     #6-10
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0051.PTEN2-6_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-6.csv',PAM, up5, moreup5, ref, left, right)
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0059.PTEN2-7_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-7.csv',PAM, up5, moreup5, ref, left, right)
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0067.PTEN2-8_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-8.csv',PAM, up5, moreup5, ref, left, right)    
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0075.PTEN2-9_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-9.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0083.PTEN2-10_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-10.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-6_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-6.csv',PAM, up5, moreup5, ref, left, right)
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-7_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-7.csv',PAM, up5, moreup5, ref, left, right)
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-8_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-8.csv',PAM, up5, moreup5, ref, left, right)    
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-9_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-9.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-10_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-10.csv',PAM, up5, moreup5, ref, left, right)  
     
     #11-15
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0091.PTEN2-11_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-11.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0004.PTEN2-12_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-12.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0012.PTEN2-13_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-13.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0020.PTEN2-14_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-14.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0028.PTEN2-15_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-15.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-11_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-11.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-12_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-12.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-13_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-13.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-14_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-14.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-15_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-15.csv',PAM, up5, moreup5, ref, left, right)  
     
     #16-20
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0036.PTEN2-16_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-16.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0044.PTEN2-17_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-17.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0052.PTEN2-18_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-18.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0060.PTEN2-19_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-19.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0068.PTEN2-20_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-20.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-16_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-16.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-17_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-17.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-18_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-18.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-19_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-19.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-20_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-20.csv',PAM, up5, moreup5, ref, left, right)  
     
     #21-25
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0076.PTEN2-21_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-21.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0084.PTEN2-22_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-22.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0092.PTEN2-23_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-23.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0005.PTEN2-24_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-24.csv',PAM, up5, moreup5, ref, left, right)  
-    mutation_n=mutations_in_a_sample(mutation_n, 'MI.M03992_0353.001.FLD0013.PTEN2-25_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-25.csv',PAM, up5, moreup5, ref, left, right)  
-    
-    
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-21_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-21.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-22_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-22.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-23_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-23.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-24_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-24.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-25_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-25.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, 'PTEN2-25_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-25.csv',PAM, up5, moreup5, ref, left, right)  
+    mutation_n=mutations_in_a_sample(mutation_n, ' PTEN2-26_FACs_R1.fastq_input.txt','PTEN2_all_mutations.csv','PTEN2-26.csv',PAM, up5, moreup5, ref, left, right)  
+   
     #mutation_n=mutations_in_a_sample(mutation_n, '','PTEN2_all_mutations.csv','PTEN2-3.csv')  
     
     piechart('PTEN2-1.csv','PTEN2-1.png');
@@ -595,7 +601,7 @@ def PTEN2():
     piechart('PTEN2-23.csv','PTEN2-23.png');
     piechart('PTEN2-24.csv','PTEN2-24.png');
     piechart('PTEN2-25.csv','PTEN2-25.png');
-
+    piechart('PTEN2-26.csv','PTEN2-26.png');
     sys.stdout.close()
     sys.stdout=stdoutOrigin
     
