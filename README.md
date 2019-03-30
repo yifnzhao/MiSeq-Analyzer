@@ -16,7 +16,7 @@ Note: The reference reads of the 4 genes, primers and sgRNA designed to perform 
 - updated MutationFinder (v5) and inputValidator (v2): added sample #26
 - please download 03292019_data_summary_update.zip
 - note that "all_input_<GENE_NAME>" folders contain all validated reads, and "validated_input_<GENE_NAME> folders contain 100 reads randomly selected from the corresponding "all_input_<GENE_NAME>" folder. Sorry for the naming confusion.
-- PTEN2 #26 : empty input txt file...need to investigate more about this
+- PTEN2 #26 : empty input txt file...need to investigate more on this
 
 ### 2019-03-25
 - (note to self) remember to add sample # 26 (omitted previously)
