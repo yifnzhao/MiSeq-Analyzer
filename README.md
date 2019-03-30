@@ -5,9 +5,17 @@
 
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs (new).docx*** document. (Note the changes in primer sequences for p53) 
 
+### 2019-03-30
+- PTEN2 #26: converted fastq to a text file containing all the reads (not validated). 
+- Text file name: MI.M03992_0353.001.FLD0336.PTEN2-26_FACs_R1.fastq_input_all.txt
+- Log file name: log20190330_NOT_validated_inputs.txt
+- I tried the primers for the 4 genes but none seemed to align. Need to discuss this with Katie.
+
+
 ### 2019-03-29
 - updated MutationFinder (v5) and inputValidator (v2): added sample #26
 - please download 03292019_data_summary_update.zip
+- note that "all_input_<GENE_NAME>" folders contain all validated reads, and "validated_input_<GENE_NAME> folders contain 100 reads randomly selected from the corresponding "all_input_<GENE_NAME>" folder. Sorry for the naming confusion.
 - PTEN2 #26 : empty input txt file...need to investigate more about this
 
 ### 2019-03-25
