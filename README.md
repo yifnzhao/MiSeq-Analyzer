@@ -5,6 +5,8 @@
 
 Note: The reference reads of the 4 genes, primers and sgRNA designed to perform the CRISPR are in the ***MiSeq Primers and sgRNAs (new).docx*** document. (Note the changes in primer sequences for p53) 
 
+### 2019-03-29
+- updated MutationFinder (v5) and inputValidator (v2): added sample #26
 
 ### 2019-03-25
 - (note to self) remember to add sample # 26 (omitted previously)
