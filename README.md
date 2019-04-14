@@ -117,10 +117,10 @@ Some notes about MiSeq:
 + This page provides very useful info: https://github.com/snugel/cas-offinder
 + from terminal:
 ```
-Yifans-MBP:MiSeq yifan$ ./cas-offinder
+Yifan:MiSeq yifan$ ./cas-offinder
 -bash: ./cas-offinder: Permission denied
-Yifans-MBP:MiSeq yifan$ chmod u+x ./cas-offinder
-Yifans-MBP:MiSeq yifan$ ./cas-offinder
+Yifan:MiSeq yifan$ chmod u+x ./cas-offinder
+Yifan:MiSeq yifan$ ./cas-offinder
 Cas-OFFinder v2.4 (Aug 16 2016)
 
 Copyright (c) 2013 Jeongbin Park and Sangsu Bae
